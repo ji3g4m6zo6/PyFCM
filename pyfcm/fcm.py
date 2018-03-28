@@ -7,6 +7,7 @@ class FCMNotification(BaseAPI):
                              registration_id=None,
                              message_body=None,
                              message_title=None,
+                             message_subtitle=None,
                              message_icon=None,
                              sound=None,
                              condition=None,
@@ -26,6 +27,7 @@ class FCMNotification(BaseAPI):
                              title_loc_key=None,
                              title_loc_args=None,
                              content_available=None,
+                             mutable_content=None,
                              timeout=5,
                              extra_notification_kwargs=None,
                              extra_kwargs={}):
@@ -73,6 +75,7 @@ class FCMNotification(BaseAPI):
         payload = self.parse_payload(registration_ids=[registration_id],
                                      message_body=message_body,
                                      message_title=message_title,
+                                     message_subtitle=message_subtitle,
                                      message_icon=message_icon,
                                      sound=sound,
                                      condition=condition,
@@ -90,6 +93,7 @@ class FCMNotification(BaseAPI):
                                      title_loc_key=title_loc_key,
                                      title_loc_args=title_loc_args,
                                      content_available=content_available,
+                                     mutable_content=mutable_content,
                                      extra_notification_kwargs=extra_notification_kwargs,
                                      **extra_kwargs)
 
@@ -170,6 +174,7 @@ class FCMNotification(BaseAPI):
                                 registration_ids=None,
                                 message_body=None,
                                 message_title=None,
+                                message_subtitle=None,
                                 message_icon=None,
                                 sound=None,
                                 condition=None,
@@ -189,6 +194,7 @@ class FCMNotification(BaseAPI):
                                 title_loc_key=None,
                                 title_loc_args=None,
                                 content_available=None,
+                                mutable_content=None,
                                 timeout=5,
                                 extra_notification_kwargs=None,
                                 extra_kwargs={}):
@@ -237,6 +243,7 @@ class FCMNotification(BaseAPI):
             payloads.append(self.parse_payload(registration_ids=registration_ids,
                                                message_body=message_body,
                                                message_title=message_title,
+                                               message_subtitle=message_subtitle,
                                                message_icon=message_icon,
                                                sound=sound,
                                                condition=condition,
@@ -255,6 +262,7 @@ class FCMNotification(BaseAPI):
                                                title_loc_key=title_loc_key,
                                                title_loc_args=title_loc_args,
                                                content_available=content_available,
+                                               mutable_content=mutable_content,
                                                extra_notification_kwargs=extra_notification_kwargs,
                                                **extra_kwargs))
         self.send_request(payloads, timeout)
